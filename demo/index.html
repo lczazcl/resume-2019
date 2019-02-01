@@ -71,7 +71,7 @@
     }
 
     .site-welcome.active {
-      display: flex;
+      display: none;
     }
   </style>
 </head>
@@ -81,7 +81,7 @@
     <div class="loading"></div>
   </div>
   <!--topNavBar-->
-  <div class="topNavBar">
+  <div id="topNavBar" class="topNavBar">
     <div class="topNavBar-inner clearfix">
       <a class="logo" href="" alt="logo">
         <span class="rs">RS</span><span class="card">card</span>
@@ -252,7 +252,17 @@
   </section>
 
   <script>
-    siteWelcome.classList.remove('active')
+    setTimeout(function(){
+      siteWelcome.classList.remove('active')
+    },1000)
+
+    window.onscroll = function(ev){
+      if(window.scrollY > 0){
+        topNavBar.classList.add('sticky')
+      }else{
+        topNavBar.classList.remove('sticky')
+      }
+    }
   </script>
 </body>
 
